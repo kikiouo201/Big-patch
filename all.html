@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:https="http://www.w3.org/1999/xhtml" style="font-family: 'Senty Golden Bell 新蒂金钟体'">
+
+<head>
+    <meta charset="UTF-8">
+    <title id="peach_icon">桃氣大補帖</title>
+
+
+
+    <style>
+        #Main_search {
+            font-family: "Senty Golden Bell 新蒂金钟体";
+            color: cyan;
+        }
+
+
+
+        #search_key {
+            color: #42b983;
+            margin-left: 60px;
+            margin-top: 0px;
+        }
+
+        ul.search_key_click li {
+
+            white-space: nowrap;
+            margin-top: 0px;
+            float: left;
+        }
+
+        ul.search_key_click a {
+            color: #028571;
+            display: block;
+            padding: 0 30px;
+            text-decoration: none;
+            line-height: 40px;
+        }
+
+
+        ul.search_key_click a:focus {
+            color: #b04a4b;
+        }
+
+
+
+        #search_btn {
+            font-family: "Senty Golden Bell 新蒂金钟体";
+            font-size: 18px;
+            color: #2c3e50;
+        }
+
+
+        #DeepSearch_btn {
+            font-family: "Senty Golden Bell 新蒂金钟体";
+            font-size: 18px;
+            color: #2c3e50;
+        }
+
+        #AskSearch_btn {
+            font-family: "Senty Golden Bell 新蒂金钟体";
+            font-size: 18px;
+            color: #344861;
+            background-color: #fdff76;
+
+        }
+
+
+
+
+        #search {
+            font-family: "Senty Golden Bell 新蒂金钟体";
+            border-radius: 5px;
+            font-size: 18px;
+            margin-top: 20px;
+            margin-left: 5px;
+            margin-bottom: 0px;
+            margin-right: 0px;
+            width: 80%;
+            background-color: #fbfff9;
+        }
+
+        #Main {
+            background-color: powderblue;
+            margin-top: 0px;
+        }
+
+
+
+        #FirstMainTitle {
+            font-family: Senty Golden Bell 新蒂金钟体;
+            /*-webkit-font-smoothing: antialiased;*/
+            /*-moz-osx-font-smoothing: grayscale;*/
+            vertical-align: middle;
+            margin: 0 auto;
+            width: 300px;
+            color: #2c3e50;
+            transition: padding-left 0.5s;
+            background-color: coral;
+            border-radius: 10px;
+        }
+
+        #FirstMainTitle.close {
+            font-family: Senty Golden Bell 新蒂金钟体;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+            color: #2c3e50;
+            transition: padding-left 0.5s;
+        }
+
+        body {
+            margin: 0px;
+            background-color: #fff09a;
+        }
+
+        ul.drop-down-menu ul {
+            border: #ccc 1px solid;
+            position: absolute;
+            z-index: 99;
+            left: -1px;
+            right: -1px;
+            top: 100%;
+            min-width: 180px;
+        }
+
+        ul.drop-down-menu ul li {
+            border-bottom: #ccc 1px solid;
+        }
+
+        ul.drop-down-menu ul li:last-child {
+            border-bottom: none;
+        }
+
+
+
+        ul.drop-down-menu ul {
+            /*隱藏次選單*/
+            display: none;
+        }
+
+        ul.drop-down-menu li:hover>ul {
+            /* 滑鼠滑入展開次選單*/
+            display: block;
+        }
+
+        ul {
+            /* 取消ul預設的內縮及樣式 */
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+
+        ul.drop-down-menu {
+            border: #16b8c0 3px solid;
+            display: inline-block;
+            font-family: Senty Golden Bell 新蒂金钟体;
+            font-size: 18px;
+            /*background-color: lightskyblue;*/
+        }
+
+        ul.drop-down-menu li {
+            position: relative;
+            white-space: nowrap;
+            /*border: #cc2400 2px solid;*/
+        }
+
+
+        ul.drop-down-menu>li {
+            float: left;
+            /* 只有第一層是靠左對齊*/
+            width: calc((100%) / 8);
+            /*margin-left: 1%;*/
+            text-align: center;
+        }
+
+        ul.drop-down-menu a {
+            background-color: #16b8c0;
+            color: #333;
+            display: block;
+            /*padding: 0 10px;*/
+            text-decoration: none;
+            line-height: 40px;
+            border-color: #028571;
+            border-style: dotted;
+        }
+
+
+
+        ul.drop-down-menu a:focus {
+            /* 滑鼠滑入按鈕變色*/
+            background-color: #560e8b;
+            color: #be2efb;
+        }
+
+        ul.drop-down-menu li:focus>a {
+            /* 滑鼠移入次選單上層按鈕保持變色*/
+            background-color: #560e8b;
+            color: #be2efb;
+        }
+
+        #dMenu {
+            margin-bottom: 0px;
+
+        }
+        #message {
+            width: 100%;
+            position: relative;
+            clear:both;
+        }
+       
+        .box {
+            
+            width: 30%;
+            height: 150px;
+            text-align: center;
+            position: relative;
+            top:10px;
+            margin: 10px;
+            float: left;
+            background-color: #fbfff9;
+            box-shadow: 0px -2px 3px rgba(20%,20%,20%,0.2);;
+        }
+        .ServiceTextline{
+            margin:0px auto; 
+            border: 0.5px gray solid;
+            width:90%;
+            height:0px;
+        }
+        .ServiceText{
+           margin-top:3px;
+           color: #666666;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="FirstMainTitle">
+        <h1 align="center"><img src="https://cdn.icon-icons.com/icons2/1465/PNG/512/529peach_100978.png"
+                style="height: 10%; width: 10%">桃氣大補帖<img
+                src="https://cdn.icon-icons.com/icons2/1465/PNG/512/529peach_100978.png"
+                style="height: 10%; width: 10%"></h1>
+    </div>
+    <div id="dMenu">
+        <ul class="drop-down-menu" style="width: 100%; ">
+            <li>
+                <a href="#">弱勢基金會</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">急難救助</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">弱勢家庭</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">獎學金</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">租屋須知及社宅</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">傷病救助</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">老人及身心障礙</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">兒童福利</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+
+    <div id="Main" style="width: 100%; height: 1800px;">
+        <div id="Main_search">
+            <input type="search" id="search" placeholder="請輸入關鍵字..." />
+            <input type="button" id="search_btn" name="查詢" value="查詢" />
+            <input type="button" id="DeepSearch_btn" name="進階查詢" value="進階查詢" />
+            <input type="button" id="AskSearch_btn" name="問卷查詢" value="問卷查詢" />
+        </div>
+        <div id="search_key">
+
+            <ul class="search_key_click">
+                <li>
+                    <a href="#">癌症</a>
+                </li>
+                <li>
+                    <a href="#">補助</a>
+                </li>
+                <li>
+                    <a href="#">弱勢助學金</a>
+                </li>
+                <li>
+                    <a href="#">健康檢查</a>
+                </li>
+                <li>
+                    <a href="#">育兒津貼</a>
+                </li>
+                <li>
+                    <a href="#">桃園</a>
+                </li>
+
+            </ul>
+           
+        </div>
+     
+        <div id="message">
+            <div class="box">
+                <p>補助和生活津貼</p>
+                <div style="margin:0px auto; border: 1px black solid;width:90%;height:0px;"></div>
+                <div class="ServiceText"><a  href="https://sab.tycg.gov.tw/home.jsp?id=30540&parentpath=0,30484,30489&mcustomize=onemessages_view.jsp&dataserno=201503110002&aplistdn=ou=data,ou=aged,ou=chsocial,ou=ap_root,o=tycg,c=tw&toolsflag=Y" style="text-decoration:none;color:#666666;">65歲以上老人健保自付額補助</a></div>
+                <div class="ServiceTextline"></div>
+                <div class="ServiceText"><a href="https://sab.tycg.gov.tw/home.jsp?id=30540&parentpath=0,30484,30489&mcustomize=onemessages_view.jsp&dataserno=201206250005&aplistdn=ou=data,ou=aged,ou=chsocial,ou=ap_root,o=tycg,c=tw&toolsflag=Y" style="text-decoration:none;color:#666666;">中低收入老人生活津貼</a></div>
+                <div class="ServiceTextline"></div>
+                <div class="ServiceText">中低收入老人特別照顧津貼</div>
+            </div>
+            <div class="box">
+                <p>實體服務</p>
+                <div style="margin:0px auto; border: 1px black solid;width:90%;height:0px;"></div>
+                <div class="ServiceText">社區復健服務據點</div>
+                <div class="ServiceTextline"></div>
+                <div class="ServiceText">桃園市長照ABC服務中心</div>
+                <div class="ServiceTextline"></div>
+                <div class="ServiceText">桃園市老人文康福利服務中心</div>
+            </div>
+            <div class="box">
+                <p>復康巴士</p>
+                <div style="margin:0px auto; border: 1px black solid;width:90%;height:0px;"></div>
+                <div class="ServiceText">桃園市復康巴士服務</div>
+               
+            </div>
+            <div class="box">
+                <p>醫院診所</p>
+                <div style="margin:0px auto; border: 1px black solid;width:90%;height:0px;"></div>
+                <div class="ServiceText">桃園市長者裝置活動假牙合約醫療院所</div>
+            </div>
+            <div class="box">
+                <p>安養院</p>
+                <div style="margin:0px auto; border: 1px black solid;width:90%;height:0px;"></div>
+                <div class="ServiceText">桃園市身心障礙者日間照顧及住宿式照顧機構名冊</div>
+            </div>
+          
+        </div>
+
+    </div>
+</body>
+
+</html>
