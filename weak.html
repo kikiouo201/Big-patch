@@ -3,7 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <title id="peach_icon">桃氣大補帖</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js">
+    </script>
 
+    <script type="text/javascript">
+        $(function(){
+            // 先取得必要的元素並用 jQuery 包裝
+            // 再來取得 $block 的高度及設定動畫時間
+            var $block = $('#TurnPic'),
+                $slides = $('ul.pic', $block),
+                _width = $block.width(),
+                $li = $('li', $slides),
+                _animateSpeed = 600,
+                // 加入計時器, 輪播時間及控制開關
+                timer, _showSpeed = 3000, _stop = false;
+
+            // 產生 li 選項
+            var _str = '';
+            for(var i=0, j=$li.length;i<j;i++){
+                // 每一個 li 都有自己的 className = playerControl_號碼
+                _str += '<li class="playerControl_' + (i+1) + '"></li>';
+            }
+
+            // 產生 ul 並把 li 選項加到其中
+            var $playerControl = $('<ul class="playerControl"></ul>').html(_str).appendTo($slides.parent()).css('left', function(){
+                // 把 .playerControl 移到置中的位置
+                return (_width - $(this).width()) / 2;
+            });
+
+            // 幫 li 加上 click 事件
+            var $playerControlLi = $playerControl.find('li').click(function(){
+                var $this = $(this);
+                $this.addClass('current').siblings('.current').removeClass('current');
+
+                clearTimeout(timer);
+                // 移動位置到相對應的號碼
+                $slides.stop().animate({
+                    left: _width * $this.index() * -1
+                }, _animateSpeed, function(){
+                    // 當廣告移動到正確位置後, 依判斷來啟動計時器
+                    if(!_stop) timer = setTimeout(move, _showSpeed);
+                });
+
+                return false;
+            }).eq(0).click().end();
+
+            // 如果滑鼠移入 $block 時
+            $block.hover(function(){
+                // 關閉開關及計時器
+                _stop = true;
+                clearTimeout(timer);
+            }, function(){
+                // 如果滑鼠移出 $block 時
+                // 開啟開關及計時器
+                _stop = false;
+                timer = setTimeout(move, _showSpeed);
+            });
+
+            // 計時器使用
+            function move(){
+                var _index = $('.current').index();
+                $playerControlLi.eq((_index + 1) % $playerControlLi.length).click();
+            }
+        });
+    </script>
 </head>
 
 
@@ -99,7 +162,7 @@
     }
 
 
-  
+   
     #FirstMainTitle {
         font-family: Senty Golden Bell 新蒂金钟体;
         /*-webkit-font-smoothing: antialiased;*/
@@ -217,22 +280,74 @@
         margin-bottom: 0px;
 
     }
+
+    #TurnPic {
+        width: 60%;
+        height: 40%;
+        position: relative;
+        overflow: hidden;
+        border: 1px solid #ccc;
+    }
+
+    ul.pic {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+    }
+
+    ul.pic li {
+        float: left;
+        width: 100%;
+        height: 100%;
+    }
+
+    .pic img {
+        width: 100%;
+        height: 100%;
+        border: 0;
+    }
+
+
+
+
+    ul.playerControl {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        position: absolute;
+        bottom: 5px;
+        right: 5px;
+        height: 14px;
+    }
+
+    ul.playerControl li {
+        float: left;
+        width: 10px;
+        height: 10px;
+        cursor: pointer;
+        margin: 0px 2px;
+        /*background: url(images/rect_ctrl.png) no-repeat 0 0;*/
+    }
+
+    ul.playerControl li.current {
+        background-position: 0 0;
+    }
 </style>
 
-<body>
+
 <div id="FirstMainTitle">
     <h1 align="center" ><img src="https://cdn.icon-icons.com/icons2/1465/PNG/512/529peach_100978.png" style="height: 10%; width: 10%">桃氣大補帖<img src="https://cdn.icon-icons.com/icons2/1465/PNG/512/529peach_100978.png" style="height: 10%; width: 10%"></h1>
 </div>
 <div id="dMenu">
     <ul class="drop-down-menu" style="width: 100%; ">
         <li>
-            <a href="#" >弱勢基金會</a>
+            <a href="#" >基金會</a>
             <ul>
                 <li>
-                    <a href="#">選項一</a>
-                </li>
-                <li>
-                    <a href="#">選項二</a>
+                    <a href="#">服務機構</a>
                 </li>
             </ul>
         </li>
@@ -240,10 +355,10 @@
             <a href="#" >急難救助</a>
             <ul>
                 <li>
-                    <a href="#">選項一</a>
+                    <a href="#">服務機構</a>
                 </li>
                 <li>
-                    <a href="#">選項二</a>
+                    <a href="#">統計資料</a>
                 </li>
             </ul>
         </li>
@@ -251,65 +366,77 @@
             <a href="#" >弱勢家庭</a>
             <ul>
                 <li>
-                    <a href="#">選項一</a>
-                </li>
-                <li>
-                    <a href="#">選項二</a>
+                    <a href="#">服務機構</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="#" >獎學金</a>
+            <a href="#" >身障補助</a>
             <ul>
                 <li>
-                    <a href="#">選項一</a>
+                    <a href="#">服務機構</a>
                 </li>
                 <li>
-                    <a href="#">選項二</a>
+                    <a href="#">醫療補助</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="#" >租屋須知及社宅</a>
+            <a href="#" >學生及兒童</a>
             <ul>
                 <li>
-                    <a href="#">選項一</a>
+                    <a href="#">經濟補助</a>
                 </li>
                 <li>
-                    <a href="#">選項二</a>
+                    <a href="#">服務機構</a>
+                </li>
+                <li>
+                    <a href="#">醫療補助</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="#" >傷病救助</a>
+            <a href="#" >租屋及社宅</a>
             <ul>
                 <li>
-                    <a href="#">選項一</a>
+                    <a href="#">經濟補助</a>
                 </li>
                 <li>
-                    <a href="#">選項二</a>
+                    <a href="#">社會住宅</a>
+                </li>
+                <li>
+                    <a href="#">統計資料</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="./all.html" >老人及身心障礙</a>
+            <a href="./all.html" >醫療服務</a>
             <ul>
                 <li>
-                    <a href="./item.html">選項一</a>
+                    <a href="#">孕婦</a>
                 </li>
                 <li>
-                    <a href="#">選項二</a>
+                    <a href="#">疾病</a>
                 </li>
             </ul>
         </li>
         <li>
-            <a href="#" >兒童福利</a>
+            <a href="#" >老人福利 </a>
             <ul>
                 <li>
-                    <a href="#">選項一</a>
+                    <a href="#">經濟補助</a>
                 </li>
                 <li>
-                    <a href="#">選項二</a>
+                    <a href="#">照護機構</a>
+                </li>
+                <li>
+                    <a href="#">醫療補助</a>
+                </li>
+                <li>
+                    <a href="#">提供服務</a>
+                </li>
+                <li>
+                    <a href="#">統計資料</a>
                 </li>
             </ul>
         </li>
@@ -349,15 +476,23 @@
         </ul>
     </div>
 
+    <div style="width: 100%; height: 800px">
     <div id="News" style="width: 40%; height: 200px">
         <h3>最新消息</h3>
     </div>
     <div id="TurnPic" style="width: 60%; height: 600px">
-
+        <ul class="pic">
+            <li><a target="_blank" href="#"><img src="images/1.jpg"></a> </li>
+            <li><a target="_blank" href="#"><img src="images/2.jpg"></a> </li>
+            <li><a target="_blank" href="#"><img src="images/3.jpg"></a> </li>
+            <li><a target="_blank" href="#"><img src="images/4.jpg"></a> </li>
+            <li><a target="_blank" href="#"><img src="images/5.jpg"></a> </li>
+        </ul>
+    </div>
     </div>
 </div>
 
-
+<body>
 
 
 </body>
