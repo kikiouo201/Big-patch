@@ -1,0 +1,631 @@
+<html>
+
+<head>
+    <script>
+        function a() {
+            if (apple.indexOf("身分證影本") >= 0) {
+                document.getElementById("detail").innerHTML
+            }
+        }
+    </script>
+    <script src="woocommerce-FlexSlider-690832b/jquery.flexslider-min.js"></script>
+    <script src="woocommerce-FlexSlider-690832b/jquery.flexslider.js"></script>
+    <style>
+    #Main_search {
+        font-family: "Senty Golden Bell 新蒂金钟体";
+        color: cyan;
+    }
+
+    #News {
+        color: #003404;
+        border-radius: 10px;
+        text-align: center;
+        border-color: #FF8800;
+        border-width: 6px;
+        border-style: dotted;
+        background-color: #FFFFBB;
+        margin-left: 20%;
+        margin-top: 50px;
+        vertical-align: middle;
+    }
+
+    #News h3 {
+        margin-top: 0px;
+    }
+
+    #search_key {
+        color: #42b983;
+        margin-left: 60px;
+        margin-top: 0px;
+        height: 40px;
+        display: block;
+    }
+
+    #location {
+        color: #0066FF;       
+        display: block;
+        height: 50px;
+    }
+    #location ul {
+        width:100%;
+        height:100%;
+        
+    }
+    #location ul li{
+    }
+    #location ul li a{
+
+    }
+
+    ul.search_key_click li {       
+        white-space: nowrap;
+        margin-top: 0px;
+        float: left;
+        
+    }
+
+    ul.search_key_click a {
+        color: #02853d;
+        display: block;
+        padding: 0 30px;
+        text-decoration: none;
+        line-height: 40px;
+    }
+
+
+    ul.search_key_click a:focus {
+        color: #b04a4b;
+    }
+
+    ul.location_click li {
+
+        white-space: nowrap;
+        margin-top: 0px;
+        float: left;
+    }
+
+    ul.location_click a {
+        color: #AAAAAA;
+        display: block;
+        padding: 0 30px;
+        text-decoration: none;
+        line-height: 40px;
+        margin-left: 0px;
+    }
+
+    ul.location_click a:focus {
+        color: #b04a4b;
+    }
+
+
+
+    #search_btn {
+        font-family: "Senty Golden Bell 新蒂金钟体";
+        font-size: 18px;
+        color: #2c3e50;
+    }
+
+
+    #DeepSearch_btn {
+        font-family: "Senty Golden Bell 新蒂金钟体";
+        font-size: 18px;
+        color: #2c3e50;
+    }
+
+    #AskSearch_btn {
+        font-family: "Senty Golden Bell 新蒂金钟体";
+        font-size: 18px;
+        color: #344861;
+        background-color: #fdff76;
+
+    }
+
+    #search {
+        font-family: "Senty Golden Bell 新蒂金钟体";
+        border-radius: 5px;
+        font-size: 18px;
+        margin-top: 20px;
+        margin-left: 5px;
+        margin-bottom: 0px;
+        margin-right: 0px;
+        width: 80%;
+        background-color: #fbfff9;
+    }
+
+    #Main {
+        background-color: powderblue;
+        margin-top: 0px;
+    }
+
+
+    #peach_icon {}
+
+    #FirstMainTitle {
+        font-family: Senty Golden Bell 新蒂金钟体;
+        /*-webkit-font-smoothing: antialiased;*/
+        /*-moz-osx-font-smoothing: grayscale;*/
+        vertical-align: middle;
+        margin: 0 auto;
+        width: 300px;
+        color: #2c3e50;
+        transition: padding-left 0.5s;
+        background-color: coral;
+        border-radius: 10px;
+        margin-top: 5px;
+    }
+
+    #FirstMainTitle.close {
+        font-family: Senty Golden Bell 新蒂金钟体;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        text-align: center;
+        color: #2c3e50;
+        transition: padding-left 0.5s;
+    }
+
+    body {
+        margin: 0px;
+        background-color: #fff09a;
+    }
+
+    ul.drop-down-menu ul {
+        border: #ccc 1px solid;
+        position: absolute;
+        z-index: 99;
+        left: -1px;
+        right: -1px;
+        top: 100%;
+        min-width: 180px;
+    }
+
+    ul.drop-down-menu ul li {
+        border-bottom: #ccc 1px solid;
+    }
+
+    ul.drop-down-menu ul li:last-child {
+        border-bottom: none;
+    }
+
+
+
+    ul.drop-down-menu ul {
+        /*隱藏次選單*/
+        display: none;
+    }
+
+    ul.drop-down-menu li:hover>ul {
+        /* 滑鼠滑入展開次選單*/
+        display: block;
+    }
+
+    ul {
+        /* 取消ul預設的內縮及樣式 */
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+
+    ul.drop-down-menu {
+        border: #16b8c0 3px solid;
+        display: inline-block;
+        font-family: Senty Golden Bell 新蒂金钟体;
+        font-size: 18px;
+        /*background-color: lightskyblue;*/
+    }
+
+    ul.drop-down-menu li {
+        position: relative;
+        white-space: nowrap;
+        /*border: #cc2400 2px solid;*/
+    }
+
+
+    ul.drop-down-menu>li {
+        float: left;
+        /* 只有第一層是靠左對齊*/
+        width: calc((100%) / 8);
+        /*margin-left: 1%;*/
+        text-align: center;
+    }
+
+    ul.drop-down-menu a {
+        background-color: #16b8c0;
+        color: #333;
+        display: block;
+        /*padding: 0 10px;*/
+        text-decoration: none;
+        line-height: 40px;
+        border-color: #028571;
+        border-style: dotted;
+    }
+
+
+
+    ul.drop-down-menu a:focus {
+        /* 滑鼠滑入按鈕變色*/
+        background-color: #560e8b;
+        color: #be2efb;
+    }
+
+    ul.drop-down-menu li:focus>a {
+        /* 滑鼠移入次選單上層按鈕保持變色*/
+        background-color: #560e8b;
+        color: #be2efb;
+    }
+
+    #dMenu {
+        margin-bottom: 0px;
+
+    }
+        .label {
+            margin-top: 0%;
+            font-family: "微軟正黑體";
+        }
+
+        #detail {
+            margin-left: 50px;
+        }
+
+        #detail tr {
+            margin-left: 20px;
+        }
+
+        #detail tr td {
+            text-align: left;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+
+        .index {
+            padding-bottom: 20px;
+            margin-top: 30px;
+            margin-left: 50px;
+            margin-right: 50px;
+            background-color: white;
+            padding-top: 10px;
+
+        }
+
+        .index2 {
+            height: auto;
+            margin-left: 50px;
+            margin-right: 50px;
+            background-color: rgb(255, 247, 238);
+            line-height: 50px;
+            font-family: "微軟正黑體";
+            font-size: 12px;
+        }
+
+        body {
+            height: 100%;
+            margin-top: 0%;
+            margin-left: 0%;
+            margin-right: 0%;
+            background-color: #ffeee0d7;
+        }
+
+        h2 {
+            font-size: 18px;
+        }
+
+        a {
+            font-family: "微軟正黑體";
+            font-size: 18px;
+            cursor: help;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <div id="FirstMainTitle">
+        <h1  align="center"><img src="https://cdn.icon-icons.com/icons2/1465/PNG/512/529peach_100978.png"
+                style=" height: 5%; width: 9%">桃氣大補帖<img
+                src="https://cdn.icon-icons.com/icons2/1465/PNG/512/529peach_100978.png" style="height:5%; width: 9%">
+        </h1>
+    </div>
+    <div id="dMenu">
+        <ul class="drop-down-menu" style="width: 100%; ">
+            <li>
+                <a href="#">弱勢基金會</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">急難救助</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">弱勢家庭</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">獎學金</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">租屋須知及社宅</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">傷病救助</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">老人及身心障礙</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">兒童福利</a>
+                <ul>
+                    <li>
+                        <a href="#">選項一</a>
+                    </li>
+                    <li>
+                        <a href="#">選項二</a>
+                    </li>
+                </ul>
+            </li>
+    
+        </ul>
+    </div>
+    
+<div id="Main" style="width: 100%; height: 1800px;">
+        <div id="Main_search">
+            <input type="search" id="search" placeholder="請輸入關鍵字..." />
+            <input type="button" id="search_btn" name="查詢" value="查詢" />
+            <input type="button" id="DeepSearch_btn" name="進階查詢" value="進階查詢" />
+            <input type="button" id="AskSearch_btn" name="問卷查詢" value="問卷查詢" />
+        </div>
+        <div id="search_key">
+    
+            <ul class="search_key_click">
+                <li>
+                    <a href="#">癌症</a>
+                </li>
+                <li>
+                    <a href="#">補助</a>
+                </li>
+                <li>
+                    <a href="#">弱勢助學金</a>
+                </li>
+                <li>
+                    <a href="#">健康檢查</a>
+                </li>
+                <li>
+                    <a href="#">育兒津貼</a>
+                </li>
+                <li>
+                    <a href="#">桃園</a>
+                </li>
+            </ul>
+        </div>
+    <div class="index">
+        <h4 class="label">目前位置：首頁>【老】老人及身心障礙者福利> 桃園市重陽敬老禮金</h4>
+
+        <div class="index2">
+            <table>
+                <tr>
+                    <td>
+                        <h2 style="color:rgb(10, 75, 119);">發布單位：</h2>
+                    </td>
+                    <td>
+                        <h2 style="color:rgba(207, 16, 16, 0.911)">老人福利科</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 style="color:rgb(10, 75, 119);">分　　類：<h2>
+                    </td>
+                    <td>
+                        <h2>敬老優待</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 style="color:rgb(10, 75, 119);">發布日期：</h2>
+                    </td>
+                    <td>
+                        <h2>107-08-28</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 style="color:rgb(10, 75, 119);">詳細內容：</h2>
+                    </td>
+                </tr>
+            </table>
+
+            <table id="detail">
+
+                <tr>
+                    <td>
+                        <h2 style="color:rgb(10, 75, 119);font-weight:bold; margin-left: 0px;">受理單位</h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2 style="padding-bottom: 15px;">戶籍所在地各區公所社會課。</h2>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <h2 style="color:rgb(10, 75, 119);font-weight:bold; margin-left: 0px;">申請資格<br></h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2>符合下列各款規定之一者，得領取重陽禮金：</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>(一)在重陽節當日已滿六十五歲之市民或已滿五十五歲之原住民，並設籍本市達六個月且有居住事實者。</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2 style="padding-bottom: 15px;">(二)經衛生福利部馬偕計畫審核通過，並居留本市之外國籍人士。</h2>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <h2 style="color:rgb(10, 75, 119);font-weight:bold; margin-left: 0px;">補助標準<br></h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2>符合資格者，</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>(一)未滿九十九歲者，每人新臺幣二千元。</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>(二)年滿九十九歲者，每人新臺幣二萬元。</h2>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <h2 style="color:rgb(10, 75, 119);font-weight:bold; margin-left: 0px;">發放方式<br></h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2>(一)未滿九十九歲者，由區公所於重陽節前五日，匯入其郵局或指定金融機構帳戶。但有特殊原因，經向戶籍所在地區公所申請核准者，得發放現金。</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>(二)年滿九十九歲者，由區公所指派代表發放現金。</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>(三)年滿一百歲者，得由本府社會局或區公所指派代表發放之。</h2>
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>
+                        <h2 style="color:rgb(10, 75, 119);font-weight:bold; margin-left: 0px;">應備文件 <br></h2>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <h2>1、申請書。</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>2、身分證影本或最近三個月內之全戶戶籍謄本。</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>3、郵局或農會帳戶影本（須配合戶籍所在地區公所作業）。</h2>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <h2>4、申請人印章。</h2>
+                    </td>
+                </tr>
+
+            </table>
+            <h2 style="font-size: 15px; margin-left: 15px;">
+
+                聯絡電話：3339090、3350598&nbsp;
+
+                傳真號碼：3362942 &nbsp;<br>
+
+                相關附件：&nbsp;
+            </h2>
+
+            <table id="Attached">
+
+                <tr>
+                    <td> <a
+                            href="https://www.tycg.gov.tw/uploaddowndoc?file=aged/201601221134141.doc&filedisplay=%E6%A1%83%E5%9C%92%E5%B8%82%E6%94%BF%E5%BA%9C%E8%87%B4%E8%B4%88%E9%87%8D%E9%99%BD%E6%95%AC%E8%80%81%E7%A6%AE%E9%87%91%E7%94%B3%E8%AB%8B%E6%9B%B8.doc&flag=doc">桃園市政府致贈重陽敬老禮金申請書.doc</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>...</td>
+                </tr>
+                <tr>
+                    <td>...</td>
+                </tr>
+                <tr>
+                    <td>...</td>
+                </tr>
+
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
