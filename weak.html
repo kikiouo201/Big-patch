@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:https="http://www.w3.org/1999/xhtml" style="font-family: 'Senty Golden Bell 新蒂金钟体'">
+
 <head>
     <meta charset="UTF-8">
     <title id="peach_icon">桃氣大補帖</title>
@@ -7,7 +8,7 @@
     </script>
 
     <script type="text/javascript">
-        $(function(){
+        $(function () {
             // 先取得必要的元素並用 jQuery 包裝
             // 再來取得 $block 的高度及設定動畫時間
             var $block = $('#TurnPic'),
@@ -20,19 +21,19 @@
 
             // 產生 li 選項
             var _str = '';
-            for(var i=0, j=$li.length;i<j;i++){
+            for (var i = 0, j = $li.length; i < j; i++) {
                 // 每一個 li 都有自己的 className = playerControl_號碼
-                _str += '<li class="playerControl_' + (i+1) + '"></li>';
+                _str += '<li class="playerControl_' + (i + 1) + '"></li>';
             }
 
             // 產生 ul 並把 li 選項加到其中
-            var $playerControl = $('<ul class="playerControl"></ul>').html(_str).appendTo($slides.parent()).css('left', function(){
+            var $playerControl = $('<ul class="playerControl"></ul>').html(_str).appendTo($slides.parent()).css('left', function () {
                 // 把 .playerControl 移到置中的位置
                 return (_width - $(this).width()) / 2;
             });
 
             // 幫 li 加上 click 事件
-            var $playerControlLi = $playerControl.find('li').click(function(){
+            var $playerControlLi = $playerControl.find('li').click(function () {
                 var $this = $(this);
                 $this.addClass('current').siblings('.current').removeClass('current');
 
@@ -40,20 +41,20 @@
                 // 移動位置到相對應的號碼
                 $slides.stop().animate({
                     left: _width * $this.index() * -1
-                }, _animateSpeed, function(){
+                }, _animateSpeed, function () {
                     // 當廣告移動到正確位置後, 依判斷來啟動計時器
-                    if(!_stop) timer = setTimeout(move, _showSpeed);
+                    if (!_stop) timer = setTimeout(move, _showSpeed);
                 });
 
                 return false;
             }).eq(0).click().end();
 
             // 如果滑鼠移入 $block 時
-            $block.hover(function(){
+            $block.hover(function () {
                 // 關閉開關及計時器
                 _stop = true;
                 clearTimeout(timer);
-            }, function(){
+            }, function () {
                 // 如果滑鼠移出 $block 時
                 // 開啟開關及計時器
                 _stop = false;
@@ -61,25 +62,38 @@
             });
 
             // 計時器使用
-            function move(){
+            function move() {
                 var _index = $('.current').index();
                 $playerControlLi.eq((_index + 1) % $playerControlLi.length).click();
             }
         });
     </script>
+    <script>
+        function wedstart(){
+            document.getElementById('AdvancedSearch').style = 'display:none';
+        }
+            var IsOpen = false;
+            function show() {
+                if (IsOpen) {
+                    document.getElementById('AdvancedSearch').style = 'display:none';
+                    IsOpen = !IsOpen;
+                } else {
+                    document.getElementById('AdvancedSearch').style = '';
+                    IsOpen = !IsOpen;
+                }
+            }
+        </script>
 </head>
 
 
 
 <style>
-
-
-    #Main_search{
+    #Main_search {
         font-family: "Senty Golden Bell 新蒂金钟体";
         color: cyan;
     }
 
-    #News{
+    #News {
         color: #003404;
         border-radius: 10px;
         text-align: center;
@@ -90,15 +104,17 @@
         margin-left: 10px;
         margin-top: 50px;
     }
-    #News h3{
+
+    #News h3 {
         margin-top: 0px;
     }
 
-    #search_key{
+    #search_key {
         color: #42b983;
         margin-left: 60px;
         margin-top: 0px;
     }
+
     ul.search_key_click li {
 
         white-space: nowrap;
@@ -121,19 +137,20 @@
 
 
 
-    #search_btn{
+    #search_btn {
         font-family: "Senty Golden Bell 新蒂金钟体";
         font-size: 18px;
         color: #2c3e50;
     }
 
 
-    #DeepSearch_btn{
+    #DeepSearch_btn {
         font-family: "Senty Golden Bell 新蒂金钟体";
         font-size: 18px;
         color: #2c3e50;
     }
-    #AskSearch_btn{
+
+    #AskSearch_btn {
         font-family: "Senty Golden Bell 新蒂金钟体";
         font-size: 18px;
         color: #344861;
@@ -144,7 +161,7 @@
 
 
 
-    #search{
+    #search {
         font-family: "Senty Golden Bell 新蒂金钟体";
         border-radius: 5px;
         font-size: 18px;
@@ -156,24 +173,60 @@
         background-color: #fbfff9;
     }
 
-    #Main{
+    #Main {
         background-color: powderblue;
         margin-top: 0px;
     }
 
 
-   
+    #AdvancedSearch {
+        width: 80%;
+        height: 225px;
+        margin: 0px auto;
+        background-color: cornsilk;
+       
+    }
+
+    #AdvancedSearch table td {
+        width: 130px;
+        height: 40px;
+
+    }
+
+    input[type="checkbox"]
+
+    /*checkbox和checkbox 都是用radio*/
+        {
+        width: 18px;
+        height: 18px;
+        cursor: auto;
+        -webkit-appearance: checkbox;
+    }
+
+    input[type="checkbox"]
+
+    /*checkbox和checkbox 都是用radio*/
+        {
+        width: 18px;
+        height: 18px;
+        cursor: auto;
+        -webkit-appearance: checkbox;
+    }
+
+
+
+
     #FirstMainTitle {
         font-family: Senty Golden Bell 新蒂金钟体;
         /*-webkit-font-smoothing: antialiased;*/
         /*-moz-osx-font-smoothing: grayscale;*/
         vertical-align: middle;
-        margin:0 auto;
+        margin: 0 auto;
         width: 300px;
         color: #2c3e50;
         transition: padding-left 0.5s;
         background-color: coral;
-        border-radius:10px;
+        border-radius: 10px;
     }
 
     #FirstMainTitle.close {
@@ -338,13 +391,19 @@
 </style>
 
 
+<body onload="wedstart()">
 <div id="FirstMainTitle">
-    <h1 align="center" ><img src="https://cdn.icon-icons.com/icons2/1465/PNG/512/529peach_100978.png" style="height: 10%; width: 10%">桃氣大補帖<img src="https://cdn.icon-icons.com/icons2/1465/PNG/512/529peach_100978.png" style="height: 10%; width: 10%"></h1>
+    <h1 align="center">
+        <img src="https://cdn.icon-icons.com/icons2/1465/PNG/512/529peach_100978.png" style="height: 10%; width: 10%">
+        桃氣大補帖
+        <img src="https://cdn.icon-icons.com/icons2/1465/PNG/512/529peach_100978.png" style="height: 10%; width: 10%">
+    </h1>
+
 </div>
 <div id="dMenu">
     <ul class="drop-down-menu" style="width: 100%; ">
         <li>
-            <a href="#" >基金會</a>
+            <a href="#">基金會</a>
             <ul>
                 <li>
                     <a href="#">服務機構</a>
@@ -352,7 +411,7 @@
             </ul>
         </li>
         <li>
-            <a href="#" >急難救助</a>
+            <a href="#">急難救助</a>
             <ul>
                 <li>
                     <a href="#">服務機構</a>
@@ -363,7 +422,7 @@
             </ul>
         </li>
         <li>
-            <a href="#" >弱勢家庭</a>
+            <a href="#">弱勢家庭</a>
             <ul>
                 <li>
                     <a href="#">服務機構</a>
@@ -371,7 +430,7 @@
             </ul>
         </li>
         <li>
-            <a href="#" >身障補助</a>
+            <a href="#">身障補助</a>
             <ul>
                 <li>
                     <a href="#">服務機構</a>
@@ -382,7 +441,7 @@
             </ul>
         </li>
         <li>
-            <a href="#" >學生及兒童</a>
+            <a href="#">學生及兒童</a>
             <ul>
                 <li>
                     <a href="#">經濟補助</a>
@@ -396,7 +455,7 @@
             </ul>
         </li>
         <li>
-            <a href="#" >租屋及社宅</a>
+            <a href="#">租屋及社宅</a>
             <ul>
                 <li>
                     <a href="#">經濟補助</a>
@@ -410,7 +469,7 @@
             </ul>
         </li>
         <li>
-            <a href="#" >醫療服務</a>
+            <a href="#">醫療服務</a>
             <ul>
                 <li>
                     <a href="#">孕婦</a>
@@ -421,7 +480,7 @@
             </ul>
         </li>
         <li>
-            <a href="./all.html" >老人福利 </a>
+            <a href="./all.html">老人福利 </a>
             <ul>
                 <li>
                     <a href="./item.html">經濟補助</a>
@@ -448,52 +507,94 @@
     <div id="Main_search">
         <input type="search" id="search" placeholder="請輸入關鍵字..." />
         <input type="button" id="search_btn" name="查詢" value="查詢" />
-        <input type="button" id="DeepSearch_btn" name="進階查詢" value="進階查詢" />
+        <input type="button" id="DeepSearch_btn" name="進階查詢" value="進階查詢" onclick="show();" />
         <input type="button" id="AskSearch_btn" name="問卷查詢" value="問卷查詢" />
     </div>
     <div id="search_key">
 
         <ul class="search_key_click">
             <li>
-                <a href="#" >癌症</a>
+                <a href="#">癌症</a>
             </li>
             <li>
-                <a href="#" >補助</a>
+                <a href="#">補助</a>
             </li>
             <li>
-                <a href="#" >弱勢助學金</a>
+                <a href="#">弱勢助學金</a>
             </li>
             <li>
-                <a href="#" >健康檢查</a>
+                <a href="#">健康檢查</a>
             </li>
             <li>
-                <a href="#" >育兒津貼</a>
+                <a href="#">育兒津貼</a>
             </li>
             <li>
-                <a href="#" >桃園</a>
+                <a href="#">桃園</a>
             </li>
 
         </ul>
+    </div>
+    <div style="clear:both;"></div>
+    <div id="AdvancedSearch">
+        <table style="margin:0px auto;">
+            <tr>
+                <td>年齡:</td>
+                <td><input type="checkbox" value="Travel" name="Interest"> 0~12歲</td>
+                <td><input type="checkbox" value="Movie" name="Interest">13~19歲 </td>
+                <td><input type="checkbox" value="Food" name="Interest">20~64歲</td>
+                <td><input type="checkbox" value="Food" name="Interest">65歲以上</td>
+            </tr>
+            <tr>
+                <td> 特殊身分:</td>
+                <td><input type="checkbox" value="Movie" name="Interest">無</td>
+                <td><input type="checkbox" value="Travel" name="Interest"> 新住民</td>
+                <td><input type="checkbox" value="Movie" name="Interest">原住民</td>
+
+            </tr>
+            <tr>
+                <td> 收入:</td>
+                <td><input type="checkbox" value="Movie" name="Interest">無</td>
+                <td><input type="checkbox" value="Travel" name="Interest"> 低收入戶</td>
+                <td><input type="checkbox" value="Movie" name="Interest">中低收入戶</td>
+
+            </tr>
+            <tr>
+                <td> 手冊:</td>
+                <td><input type="checkbox" value="Movie" name="Interest">無</td>
+                <td> <input type="checkbox" value="Travel" name="Interest">殘障</td>
+                <td><input type="checkbox" value="Movie" name="Interest">孕婦</td>
+            </tr>
+            <tr>
+                <td> 職業:</td>
+                <td><input type="checkbox" value="Travel" name="Interest">學生</td>
+                <td><input type="checkbox" value="Movie" name="Interest">公職員</td>
+                <td><input type="checkbox" value="Travel" name="Interest">失業</td>
+                <td><input type="checkbox" value="Movie" name="Interest">勞工</td>
+                <td><input type="checkbox" value="Travel" name="Interest">農民</td>
+                <td><input type="checkbox" value="Travel" name="Interest">其他</td>
+            </tr>
+        </table>
+
     </div>
 
     <div style="width: 100%; height: 800px">
-    <div id="News" style="width: 40%; height: 200px">
-        <h3>最新消息</h3>
-    </div>
-    <div id="TurnPic" style="width: 60%; height: 600px">
-        <ul class="pic">
-            <li><a target="_blank" href="#"><img src="images/1.jpg"></a> </li>
-            <li><a target="_blank" href="#"><img src="images/2.jpg"></a> </li>
-            <li><a target="_blank" href="#"><img src="images/3.jpg"></a> </li>
-            <li><a target="_blank" href="#"><img src="images/4.jpg"></a> </li>
-            <li><a target="_blank" href="#"><img src="images/5.jpg"></a> </li>
-        </ul>
-    </div>
+        <div id="News" style="width: 40%; height: 200px">
+            <h3>最新消息</h3>
+        </div>
+        <div id="TurnPic" style="width: 60%; height: 600px">
+            <ul class="pic">
+                <li><a target="_blank" href="#"><img src="images/1.jpg"></a> </li>
+                <li><a target="_blank" href="#"><img src="images/2.jpg"></a> </li>
+                <li><a target="_blank" href="#"><img src="images/3.jpg"></a> </li>
+                <li><a target="_blank" href="#"><img src="images/4.jpg"></a> </li>
+                <li><a target="_blank" href="#"><img src="images/5.jpg"></a> </li>
+            </ul>
+        </div>
     </div>
 </div>
 
-<body>
 
 
 </body>
+
 </html>

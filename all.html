@@ -5,7 +5,21 @@
     <meta charset="UTF-8">
     <title id="peach_icon">桃氣大補帖</title>
 
-
+    <script>
+            function wedstart(){
+                document.getElementById('AdvancedSearch').style = 'display:none';
+            }
+                var IsOpen = false;
+                function show() {
+                    if (IsOpen) {
+                        document.getElementById('AdvancedSearch').style = 'display:none';
+                        IsOpen = !IsOpen;
+                    } else {
+                        document.getElementById('AdvancedSearch').style = '';
+                        IsOpen = !IsOpen;
+                    }
+                }
+            </script>
 
     <style>
         #Main_search {
@@ -83,6 +97,40 @@
             background-color: powderblue;
             margin-top: 0px;
         }
+
+        #AdvancedSearch {
+        width: 80%;
+        height: 225px;
+        margin: 0px auto;
+        background-color: cornsilk;
+       
+    }
+
+    #AdvancedSearch table td {
+        width: 130px;
+        height: 40px;
+
+    }
+
+    input[type="checkbox"]
+
+    /*checkbox和checkbox 都是用radio*/
+        {
+        width: 18px;
+        height: 18px;
+        cursor: auto;
+        -webkit-appearance: checkbox;
+    }
+
+    input[type="checkbox"]
+
+    /*checkbox和checkbox 都是用radio*/
+        {
+        width: 18px;
+        height: 18px;
+        cursor: auto;
+        -webkit-appearance: checkbox;
+    }
 
 
 
@@ -234,7 +282,7 @@
     </style>
 </head>
 
-<body>
+<body onload="wedstart()">
     <div id="FirstMainTitle" onclick="document.location.href='./weak.html';">
         <h1 align="center"><img src="https://cdn.icon-icons.com/icons2/1465/PNG/512/529peach_100978.png"
                 style="height: 10%; width: 10%" >桃氣大補帖<img
@@ -347,7 +395,7 @@
         <div id="Main_search">
             <input type="search" id="search" placeholder="請輸入關鍵字..." />
             <input type="button" id="search_btn" name="查詢" value="查詢" />
-            <input type="button" id="DeepSearch_btn" name="進階查詢" value="進階查詢" />
+            <input type="button" id="DeepSearch_btn" name="進階查詢" value="進階查詢" onclick="show();"/>
             <input type="button" id="AskSearch_btn" name="問卷查詢" value="問卷查詢" />
         </div>
         <div id="search_key">
@@ -374,8 +422,48 @@
 
             </ul>
            
+        </div><div style="clear:both;"></div>
+        <div id="AdvancedSearch">
+            <table style="margin:0px auto;">
+                <tr>
+                    <td>年齡:</td>
+                    <td><input type="checkbox" value="Travel" name="Interest"> 0~12歲</td>
+                    <td><input type="checkbox" value="Movie" name="Interest">13~19歲 </td>
+                    <td><input type="checkbox" value="Food" name="Interest">20~64歲</td>
+                    <td><input type="checkbox" value="Food" name="Interest">65歲以上</td>
+                </tr>
+                <tr>
+                    <td> 特殊身分:</td>
+                    <td><input type="checkbox" value="Movie" name="Interest">無</td>
+                    <td><input type="checkbox" value="Travel" name="Interest"> 新住民</td>
+                    <td><input type="checkbox" value="Movie" name="Interest">原住民</td>
+    
+                </tr>
+                <tr>
+                    <td> 收入:</td>
+                    <td><input type="checkbox" value="Movie" name="Interest">無</td>
+                    <td><input type="checkbox" value="Travel" name="Interest"> 低收入戶</td>
+                    <td><input type="checkbox" value="Movie" name="Interest">中低收入戶</td>
+    
+                </tr>
+                <tr>
+                    <td> 手冊:</td>
+                    <td><input type="checkbox" value="Movie" name="Interest">無</td>
+                    <td> <input type="checkbox" value="Travel" name="Interest">殘障</td>
+                    <td><input type="checkbox" value="Movie" name="Interest">孕婦</td>
+                </tr>
+                <tr>
+                    <td> 職業:</td>
+                    <td><input type="checkbox" value="Travel" name="Interest">學生</td>
+                    <td><input type="checkbox" value="Movie" name="Interest">公職員</td>
+                    <td><input type="checkbox" value="Travel" name="Interest">失業</td>
+                    <td><input type="checkbox" value="Movie" name="Interest">勞工</td>
+                    <td><input type="checkbox" value="Travel" name="Interest">農民</td>
+                    <td><input type="checkbox" value="Travel" name="Interest">其他</td>
+                </tr>
+            </table>
+    
         </div>
-     
         <div id="message">
             <div class="box">
                 <p>補助和生活津貼</p>
